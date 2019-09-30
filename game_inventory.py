@@ -3,18 +3,32 @@
 # Write code in the functions (and create new functions) so that they work
 # according to the specification.
 
+inve = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
+dragon_loot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby', 'ruby']
+
+items = list(inve.items())
+items_1 = sorted(items, key=lambda x: x[1], reverse= True)
+
+length = []
+for i in inve:
+    length.append(len(i))
+
+print(length)
+
+
 
 def display_inventory(inventory):
-    '''Display the inventory like this:
-    rope: 1
-    torch: 6
-    '''
-    pass
+    for i in inventory.items():
+        print(i[0]+": "+ str(i[1]))
+
 
 
 def add_to_inventory(inventory, added_items):
-    '''Add to the inventory dictionary a list of items from added_items.'''
-    pass
+    for i in added_items:
+        if i in inventory:
+            inventory[i] = inventory[i] + 1
+        else:
+            inventory[i] = 1
 
 
 def print_table(inventory, order=None):
