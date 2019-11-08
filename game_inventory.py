@@ -59,7 +59,7 @@ def import_inventory(inventory, filename="import_inventory.csv"):
     '''
     inve = []
     with open(filename, "r") as file:
-        inve.append(f.readline())
+        inve.append(file.readline())
     '''
 
 
