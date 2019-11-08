@@ -6,22 +6,13 @@
 inve = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
 dragon_loot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby', 'ruby']
 
-items = list(inve.items())
-items_1 = sorted(items, key=lambda x: x[1], reverse= True)
-
-length = []
-for i in inve:
-    length.append(len(i))
-
-print(length)
-
 
 
 def display_inventory(inventory):
     for i in inventory.items():
         print(i[0]+": "+ str(i[1]))
 
-
+print(display_inventory(inve))
 
 def add_to_inventory(inventory, added_items):
     for i in added_items:
@@ -30,6 +21,9 @@ def add_to_inventory(inventory, added_items):
         else:
             inventory[i] = 1
 
+add_to_inventory(inve, dragon_loot)
+
+print(display_inventory(inve))
 
 def print_table(inventory, order=None):
     '''
@@ -50,7 +44,6 @@ def print_table(inventory, order=None):
     - "count,asc" means the table is ordered by count in ascending order
     '''
 
-    pass
 
 
 def import_inventory(inventory, filename="import_inventory.csv"):
@@ -61,9 +54,13 @@ def import_inventory(inventory, filename="import_inventory.csv"):
     "import_inventory.csv". The import automatically merges items by name.
 
     The file format is plain text with comma separated values (CSV).
+    
     '''
-
-    pass
+    '''
+    inve = []
+    with open(filename, "r") as file:
+        inve.append(f.readline())
+    '''
 
 
 def export_inventory(inventory, filename="export_inventory.csv"):
@@ -75,5 +72,4 @@ def export_inventory(inventory, filename="export_inventory.csv"):
 
     The file format is plain text with comma separated values (CSV).
     '''
-
-    pass
+    #with open(filename, "w") as f:
